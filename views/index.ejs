@@ -1,8 +1,8 @@
 <%- include("./body/header") %>
 
-<div class="">
-      <nav class="navbar navbar-light bg-light mx-4">
-            <a class="navbar-brand" href="/">Todo App</a>
+<div class="container">
+      <nav class="navbar navbar-light bg-light mx-4" >
+            <a class="navbar-brand" id="nav-title" href="/">Todo App</a>
       </nav>
 
       <div class="container">
@@ -12,10 +12,10 @@
             </form>
             <ul class="list-group my-5">
                   <% todo.forEach(todos => { %>
-                        <li class="list-group-item"><%= todos.todo %><a href="/" class=" btn btn-success btn-sm mx-1">Done</a> <a href="/delete/todo/<%= todos._id %>" class="btn btn-danger btn-sm mx-2" >Delete</a></li>
+                        <li class="list-group-item my-1"><%= todos.todo %><a href="/edit" class="btn btn-success btn-sm mx-2">Edit</a><a href="/delete/todo/<%= todos._id %>" class="btn btn-danger btn-sm mx-2" >Delete</a></li>
                   <% }) %> 
             </ul>
       </div>
-</div>
+</div> 
 
 <%- include("./body/footer") %>

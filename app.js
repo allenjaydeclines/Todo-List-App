@@ -19,5 +19,7 @@ app.set("view engine", "ejs");
 app.use(require("./routes/index"))
 app.use(require("./routes/todo"))
 
+app.get("/edit", (request,response) => { response.render("edit")})
+
 
 app.listen(port, () => console.log(`listening to port ${port}`))
