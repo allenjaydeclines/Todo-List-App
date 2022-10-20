@@ -13,14 +13,25 @@ router.post("/add/todo", (request, response) => {
     .catch((err) => console.log(err)) 
 })
 
-.get("/delete/todo/:_id", (request,response) => {
+.get("/delete/todo/:_id", async(request,response) => {
     const {_id} = request.params
-    Todo.deleteOne({_id})
-    .then(() => {
-        console.log("Deleted successfully")
-        response.redirect("/")
-    }) 
-    .catch((err) => console.log(err)) 
+    await Todo.deleteOne({_id})
+    console.log("Deleted successfully")
+    response.redirect("/")
+})
+
+.get("/edit/todo/:_id", async(request, response) => {
+    const {_id} = request.params
+    const data = await Todo.findById({_id})
+    console.log("fetch successfully")
+    console.log({data})
+    response.render("edit", {data})
+})
+
+.post("/update/todo/", async(request, response) => {
+    //const {_id} = request.params
+    //await Todo.findOneAndUpdate({_id}, input)
+    console.log(request.body)
 })
 
 
