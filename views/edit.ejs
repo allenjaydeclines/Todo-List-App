@@ -1,15 +1,16 @@
 <%- include("./body/header") %>
     <div class="container d-flex justify-content-center my-5">
         <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Edit Todo</h5>
-              <p class="card-text"><%= data._id %></p>
-              <p class="card-text">Todo</p>
-              <form action="/update/todo/" method="POST" class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" <%= data.completed ? "checked" : "" %>>
-                <label class="form-check-label" for="flexCheckDefault">Completed </label>
+            <div class="card-body d-flex flex-column">
+              <h3 class="card-title">Edit Todo</h3>
+              <h5 class="card-subtitle mb-2 text-muted" id="data-todo"><%= data.todo %></h5>
+              <form action="/update/todo" method="POST" class="form-check">
+                <div class="form-group">
+                  <input class="form-check-input" id="checkbox-completed" type="checkbox" value="true" name="checkbox" id="flexCheckDefault">
+                  <label class="form-check-label" for="flexCheckDefault">Completed</label>
+                </div>
+                <input type ="submit" value="Done Todo" class="btn btn-success my-2 "/>
               </form>
-              <input type ="submit" value="Done Todo" class="btn btn-success my-2"/>
             </div>
           </div>
     </div>
