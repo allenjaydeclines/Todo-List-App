@@ -22,17 +22,17 @@ router.post("/add/todo", async(request, response) => {
     response.render("edit", {data})
 })
 
-.post("/update/todo", async(request, response) => {
+.post("/update/todo/:_id", async(request, response) => {
     const checkbox = request.body.checkbox
+    const {_id} = request.params
+    const data = await Todo.findById({_id})
     if (checkbox) {
-        var data = await Todo.findOneAndUpdate({_id: "6351a3e30e4e3d7f4e19a603"}, {completed: true})
-        //await Todo.findOneAndUpdate({todo: 'Check thesis'}, {completed: true})
+        await Todo.findOneAndUpdate(data._id, {completed: true})
+        
     }
-    else {
-        var data = await Todo.findOneAndUpdate({_id: "6351a3e30e4e3d7f4e19a603"}, {completed: false})
-    }
-    console.log(data)
+    
     response.redirect("/")
+    console.log(data)
 })
 
 
