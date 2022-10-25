@@ -28,7 +28,9 @@ router.post("/add/todo", async(request, response) => {
     const data = await Todo.findById({_id})
     if (checkbox) {
         await Todo.findOneAndUpdate(data._id, {completed: true})
-        
+    }
+    else {
+        await Todo.findOneAndUpdate(data._id, {completed: false})
     }
     
     response.redirect("/")

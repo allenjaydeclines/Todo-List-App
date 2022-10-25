@@ -12,7 +12,7 @@
             </form>
             <ul class="list-group my-5">
                   <% todo.forEach(todos => { %>
-                        <li class="list-group-item my-1"><%= todos.todo %><a href="/edit/todo/<%= todos._id %>" class="btn btn-success btn-sm mx-2">Edit</a><a href="/delete/todo/<%= todos._id %>" class="btn btn-danger btn-sm mx-2" >Delete</a></li>
+                        <li class="list-group-item my-1 <% if (todos.completed) {%> list-group-item-success <% } %> "><%= todos.todo %><a href="/edit/todo/<%= todos._id %>" class="btn btn-success btn-sm mx-2">Edit</a><a href="/delete/todo/<%= todos._id %>" class="btn btn-danger btn-sm mx-2" >Delete</a></li>
                   <% }) %> 
             </ul>
       </div>
