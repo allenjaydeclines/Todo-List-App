@@ -1,3 +1,4 @@
+
 const express = require('express')
 const mongoose = require('mongoose')
 const port = 3000
@@ -10,10 +11,17 @@ mongoose.connect("mongodb://localhost/todo-app", {
     useUnifiedTopology: true, 
 })
 
+
+
+
 //middlewares
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.use(express.static('public'));
 app.set("view engine", "ejs");
+
+
+
+
 
 //routes
 app.use(require("./routes/index"))
