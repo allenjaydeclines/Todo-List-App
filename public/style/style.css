@@ -2,11 +2,3 @@ body {
     margin: 0;
     padding: 0;
 }
-#nav-title {
-    font-family:  'Poppins';
-    font-weight: 700;
-}
-
-.list-group-item {
-    font-weight: 700;
-}
